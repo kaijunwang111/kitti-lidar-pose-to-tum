@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14  -O3 -Wall -g    -rdynamic CMakeFiles/camera2lidar.dir/camera2lidar.cpp.o  -o camera2lidar 
