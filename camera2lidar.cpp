@@ -8,9 +8,11 @@
 using namespace std;
 int main()
 {
-    string pose_file = "/home/kaijun/Desktop/Datasets/kitti/data_odometry_poses/dataset/poses/00.txt";
-    string time_file = "/home/kaijun/Desktop/Datasets/kitti/data_odometry_calib/dataset/sequences/00/times.txt";
-    string calib_file = "/home/kaijun/Desktop/Datasets/kitti/data_odometry_calib/dataset/sequences/00/calib.txt";
+    string sequence = "05";
+    string pose_file = "/home/kaijun/Desktop/Datasets/kitti/data_odometry_poses/dataset/poses/" + sequence + ".txt";
+    string time_file = "/home/kaijun/Desktop/Datasets/kitti/data_odometry_calib/dataset/sequences/" + sequence + "/times.txt";
+    string calib_file = "/home/kaijun/Desktop/Datasets/kitti/data_odometry_calib/dataset/sequences/" + sequence + "/calib.txt";
+    string tum_pose_file = "/home/kaijun/Desktop/Datasets/kitti/tum_pose/kitti" + sequence + "_tum.txt";
     ifstream fin_calib(calib_file);
     string line;
     vector<double> Tr;
@@ -83,7 +85,6 @@ int main()
         pose_lidar.push_back(single_pose_lidar);
     }
 
-    string tum_pose_file = "/home/kaijun/Desktop/Datasets/kitti/tum_pose/kitti00_tum.txt";
     ofstream data_output;
     data_output.open(tum_pose_file, std::ios::ate | std::ios::out);
     for (int i = 0; i < times.size(); i++) {
